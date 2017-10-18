@@ -1,0 +1,20 @@
+doctype html
+html lang="ru" 
+  head
+    = csrf_meta_tags
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    /! Meta, title, CSS, favicons, etc.
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    = stylesheet_link_tag 'application', media: 'all'
+    title= yield :title
+  body.body
+    = render partial: 'layouts/shared/topnav'
+    .container
+
+      = yield
+
+    .modal.fade
+
+    = content_for :assets
