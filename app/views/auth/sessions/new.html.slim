@@ -1,0 +1,10 @@
+.row.margin-top-40
+  .col-md-8.col-md-offset-2
+    .panel.panel-default
+      .panel-heading
+        h2.panel-title Telegram Admin
+      .panel-body
+        = simple_form_for resource_session, as: :session, url: auth_sign_in_path do |f|
+          = f.input :login, placeholder: 'Логин', input_html: { class: 'form-control'}, label: false, required: false
+          = f.input :password,  placeholder: 'Пароль', input_html: { class: 'form-control'}, label: false, required: false
+          = f.submit 'Войти', class: 'btn btn-primary'
