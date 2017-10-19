@@ -1,13 +1,39 @@
 class TelegramBotApi
+  require 'telegram/bot'
   TELEGRAM_TOKEN = '428559215:AAFwkErv6EoczhTiNwj4JPyYbSdhIDNc6fs'
 
   class << self
 
-    def init_bot
-      
+    def get_updates
+      Telegram::Bot::Client.run(TELEGRAM_TOKEN) do |bot|
+        bot.listen do |message|
+          bot_user = BotUser.find_by(telegram_id: message.from.id)
+          if bot_user.blank?
+            BotUser.create(
+              telegram_id: message.from.id,
+              first_name: message.from.first_name,
+              last_name: message.from.last_name,
+              username: message.from.username
+            )
+          end
+
+          bot_user.messages.create(template_id: bot_user.last_template_id, punchline: message.text)
+
+          template = Template.order('RANDOM()').first
+          reply_text = "Продолжите фразу: «#{template.text}...»"
+          bot_user.update_column(:last_template_id, template.id)
+
+          case message.text
+          when '/start'
+            bot.api.send_message(chat_id: message.chat.id, text: reply_text)
+          else
+            bot.api.send_message(chat_id: message.chat.id, text: "Ваше сообщение отправлено.\r\n \r\n#{reply_text}")
+          end
+        end
+      end
     end
 
-    def get_updates
+    def get_updates1
       bot = TelegramBot.new(token: TELEGRAM_TOKEN)
       # begin
         bot.get_updates(fail_silently: true) do |message|

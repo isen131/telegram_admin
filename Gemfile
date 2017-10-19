@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'telegram-bot-ruby'
+gem 'sidekiq'
+gem 'redis-mutex'
 gem 'puma'
 gem 'font-awesome-rails'
 gem 'aasm'
