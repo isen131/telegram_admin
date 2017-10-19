@@ -1,7 +1,7 @@
-class BotListener
-  include Sidekiq::Worker
+# class BotListener
+#   # include Sidekiq::Worker
   
-  def perform
-    TelegramBotApi.get_updates
-  end
-end
+#   def perform
+#     TelegramBotApi.get_updates
+#   end
+# end
