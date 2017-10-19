@@ -16,4 +16,6 @@ Rails.application.routes.draw do
     get 'sign_out' => 'sessions#destroy'
   end
 
+  get 'get_messages' => 'whitelist_messages#get_messages'
+
 end
