@@ -1,0 +1,1 @@
+worker: bundle exec rake bot:start_listener
