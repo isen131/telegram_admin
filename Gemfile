@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'puma'
 gem 'font-awesome-rails'
 gem 'aasm'
 gem 'telegram_bot'
