@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'telegram-bot-ruby'
-gem 'sidekiq'
+# gem 'sidekiq'
 gem 'puma'
 gem 'font-awesome-rails'
 gem 'aasm'
