@@ -1,0 +1,29 @@
+<% if local_assigns[:remove].present? %>
+  var $remove = $('<%="#{local_assigns[:remove]}"%>')
+  $remove.remove()
+<% end %>
+
+<% if local_assigns[:replace].present? && local_assigns[:with].present? %>
+  var $replace = $('<%="#{local_assigns[:replace]}"%>')
+
+  $replace.replaceWith('<%= escape_javascript(render partial: "#{local_assigns[:with]}", locals: local_assigns[:locals]) %>')
+<% end %>
+
+<% if local_assigns[:append].present? && local_assigns[:append_partial].present? %>
+  var $append = $('<%="#{local_assigns[:append]}"%>')
+
+  $append.append('<%= escape_javascript(render partial: "#{local_assigns[:append_partial]}", locals: local_assigns[:append_locals]) %>')
+<% end %>
+
+<% if local_assigns[:autofocus].present? %>
+  setTimeout( function(){
+      $($append.find('<%="#{local_assigns[:autofocus]}"%>:last')).focus();
+    },
+  10);
+<% end %>
+
+<% if local_assigns[:modal].present? && (local_assigns[:modal].to_s == 'hide') %>
+  $('@modal').modal('hide')
+<% end %>
+
+NProgress.done()

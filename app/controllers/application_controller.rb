@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   layout 'application'
   protect_from_forgery with: :exception
 
+  before_filter :require_persisted_user
+
   def create_session(user)
     @session = User::Session.new(user)
     @session.remember_me = true

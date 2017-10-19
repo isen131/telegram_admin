@@ -1,0 +1,5 @@
+<% if local_assigns[:url].present? %>
+  window.location.href = '<%= local_assigns[:url] %>'
+<% else %>
+  window.location.reload()
+<% end %>

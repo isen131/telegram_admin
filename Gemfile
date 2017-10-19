@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
 
+gem 'font-awesome-rails'
+gem 'aasm'
+gem 'telegram_bot'
 gem 'simple_form'
 gem 'gentelella-rails'
 gem 'authlogic'
 gem 'slim'
+gem 'role-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
@@ -34,6 +38,18 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  gem 'pry'
+  gem 'pry-developer_tools'
+  gem 'pry-doc'
+  gem 'pry-docmore'
+  gem 'pry-highlight'
+  gem 'pry-nav'
+  gem 'pry-pretty-numeric'
+  gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-theme'
 end
 
 group :development do

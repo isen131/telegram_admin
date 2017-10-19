@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018111202) do
+ActiveRecord::Schema.define(version: 20171018235440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bot_user_messages", force: :cascade do |t|
+    t.integer  "bot_user_id"
+    t.integer  "template_id"
+    t.text     "punchline"
+    t.string   "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "bot_users", force: :cascade do |t|
+    t.integer  "telegram_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
+    t.integer  "last_template_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "templates", force: :cascade do |t|
     t.text "text"

@@ -1,0 +1,25 @@
+ul@unsortedMessagesList
+  - if resource_messages_collection.any?
+    table.table.table-condensed.table-hover.table-striped
+      thead
+        tr
+          th Отправитель
+          th Заготовка
+          th Ответ
+          th
+          th
+      tbody
+        - resource_messages_collection.each do |message|
+          tr
+            td
+              = message.bot_user.full_name
+            td
+              = message.template.text
+            td
+              = message.punchline
+            td.text-right
+              = link_to fa_icon('check'), accept_unsorted_message_path(message), class: 'btn btn-sm btn-success', remote: true, method: :put
+            td.text-right
+              = link_to fa_icon('times'), reject_unsorted_message_path(message), class: 'btn btn-sm btn-danger', remote: true, method: :put
+  - else
+    h3 Сообщений нет

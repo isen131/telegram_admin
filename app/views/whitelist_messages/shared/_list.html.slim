@@ -1,0 +1,19 @@
+ul
+  - if resource_messages_collection.any?
+    table.table.table-condensed.table-hover.table-striped
+      thead
+        tr
+          th Отправитель
+          th Заготовка
+          th Ответ
+      tbody
+        - resource_messages_collection.each do |message|
+          tr
+            td
+              = message.bot_user.full_name
+            td
+              = message.template.text
+            td
+              = message.punchline
+  - else
+    h3 Сообщений нет
