@@ -16,10 +16,17 @@ class UnsortedMessagesController < ApplicationController
   end
 
   def reject
+    resource_message.reject!
+    render partial: 'shared/js/content', locals: {
+      replace: '@unsortedMessagesList',
+      with: 'unsorted_messages/shared/list',
+      locals: {
+        resource_messages_collection: resource_messages_collection
+      }
+    }
   end
 
   def reload_collection
-    
   end
 
   protected
