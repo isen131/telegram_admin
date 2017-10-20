@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'yui-compressor'
-gem 'closure-compiler'
 gem 'js-routes'
 gem 'telegram-bot-ruby'
 gem 'http'

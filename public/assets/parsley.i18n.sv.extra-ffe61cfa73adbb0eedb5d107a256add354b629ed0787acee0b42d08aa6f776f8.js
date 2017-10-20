@@ -1,0 +1,1 @@
+Parsley.addMessages("sv",{dateiso:"Ange ett giltigt datum (\xc5\xc5\xc5\xc5-MM-DD)."});
