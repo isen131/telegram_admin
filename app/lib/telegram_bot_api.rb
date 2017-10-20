@@ -9,7 +9,7 @@ class TelegramBotApi
         bot.listen do |message|
           bot_user = BotUser.find_by(telegram_id: message.from.id)
           if bot_user.blank?
-            BotUser.create(
+            bot_user = BotUser.create(
               telegram_id: message.from.id,
               first_name: message.from.first_name,
               last_name: message.from.last_name,
@@ -17,7 +17,9 @@ class TelegramBotApi
             )
           end
 
-          bot_user.messages.create(template_id: bot_user.last_template_id, punchline: message.text)
+          if bot_user.last_template_id.present?
+            bot_user.messages.create(template_id: bot_user.last_template_id, punchline: message.text)
+          end
 
           template = Template.order('RANDOM()').first
           reply_text = "Продолжите фразу: «#{template.text}...»"
