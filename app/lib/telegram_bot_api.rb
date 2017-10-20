@@ -19,7 +19,7 @@ class TelegramBotApi
 
           if bot_user.last_template_id.present?
             bot_user.messages.create(template_id: bot_user.last_template_id, punchline: message.text)
-            HTTP.get('https://brefshow.herokuapp.com/unsorted_messages/reload_collection')
+            HTTP[:accept => "application/json"].get('https://brefshow.herokuapp.com/unsorted_messages/reload_collection')
           end
 
           template = Template.order('RANDOM()').first
