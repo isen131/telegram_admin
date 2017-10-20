@@ -6,6 +6,7 @@ ul
           th Отправитель
           th Заготовка
           th Ответ
+          th
       tbody
         - resource_messages_collection.each do |message|
           tr
@@ -15,5 +16,7 @@ ul
               = message.template.text
             td
               = message.punchline
+            td.text-right
+              = link_to fa_icon('times'), reject_unsorted_message_path(message), class: 'btn btn-sm btn-danger', remote: true, method: :put
   - else
     h3 Сообщений нет
