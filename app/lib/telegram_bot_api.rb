@@ -1,6 +1,6 @@
 class TelegramBotApi
   require 'telegram/bot'
-  TELEGRAM_TOKEN = '428559215:AAFwkErv6EoczhTiNwj4JPyYbSdhIDNc6fs'
+  TELEGRAM_TOKEN = '387173014:AAGWNVqr2CaNN3hi7DWM_p3mOSku-Nixuvw'
 
   class << self
 
@@ -19,7 +19,6 @@ class TelegramBotApi
 
           if bot_user.last_template_id.present?
             bot_user.messages.create(template_id: bot_user.last_template_id, punchline: message.text)
-            HTTP.get('https://brefshow.herokuapp.com/unsorted_messages/reload_collection.js')
           end
 
           template = Template.order('RANDOM()').first

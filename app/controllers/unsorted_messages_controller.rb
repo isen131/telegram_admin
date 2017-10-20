@@ -29,15 +29,15 @@ class UnsortedMessagesController < ApplicationController
     }
   end
 
-  def reload_collection
-    render partial: 'shared/js/content', locals: {
-      replace: '@unsortedMessagesList',
-      with: 'unsorted_messages/shared/list',
-      locals: {
-        resource_messages_collection: resource_messages_collection
-      }
-    }
-  end
+  # def reload_collection
+  #   render partial: 'shared/js/content', locals: {
+  #     replace: '@unsortedMessagesList',
+  #     with: 'unsorted_messages/shared/list',
+  #     locals: {
+  #       resource_messages_collection: resource_messages_collection
+  #     }
+  #   }
+  # end
 
   protected
 
