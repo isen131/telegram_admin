@@ -13,9 +13,9 @@
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav
           li class="#{params[:controller] =~ /unsorted_messages/ && 'active'}"
-            = link_to 'Входящие сообщения', unsorted_messages_path
+            = link_to 'Входящие', unsorted_messages_path
           li class="#{params[:controller] =~ /whitelist_messages/ && 'active'}"
-            = link_to 'Проверенные сообщения', whitelist_messages_path
+            = link_to 'Проверенные', whitelist_messages_path
         ul.nav.navbar-nav.navbar-right
           li
             = link_to 'Выход', auth_sign_out_url
