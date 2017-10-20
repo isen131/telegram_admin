@@ -36,8 +36,13 @@ class UnsortedMessagesController < ApplicationController
     }
   end
 
-  def collection_count
-    render text: "#{resource_messages_collection.count}"
+  def detect_new_messages
+    if resource_messages_collection.is_new.any?
+      resource_messages_collection.is_new.update_all(:new => false)
+      render text: true
+    else
+      render text: false
+    end
   end
 
   protected

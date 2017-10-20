@@ -18,6 +18,8 @@ class BotUser::Message < ApplicationRecord
     end
   end
 
+  scope :is_new, ->{ where(:new => true) }
+
   def text
     return if self.template.blank? || self.punchline.blank?
 
