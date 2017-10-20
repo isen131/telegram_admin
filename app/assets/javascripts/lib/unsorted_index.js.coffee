@@ -14,7 +14,7 @@ class Lib.UnsortedIndex
             (data, textStatus, jqXHR) ->
               console.log data
               if parseInt(data) != parseInt($('@messageTr').length)
-                $('<audio class="sound-player" autoplay="autoplay" style="display:none;">' + '<source src="' + 'assets/file-sounds-937-job-done.wav' + '" />' + '<embed src="' + 'assets/file-sounds-937-job-done.wav' + '" hidden="true" autostart="true" loop="false"/>' + '</audio>').appendTo 'body'
+                $('<audio class="sound-player" autoplay="autoplay" style="display:none;">' + '<source src="' + '/file-sounds-937-job-done.wav' + '" />' + '<embed src="' + '/file-sounds-937-job-done.wav' + '" hidden="true" autostart="true" loop="false"/>' + '</audio>').appendTo 'body'
         )
         setTimeout (->
           $.ajax(
