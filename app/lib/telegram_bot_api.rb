@@ -1,6 +1,6 @@
 class TelegramBotApi
   require 'telegram/bot'
-  TELEGRAM_TOKEN = '387173014:AAGWNVqr2CaNN3hi7DWM_p3mOSku-Nixuvw'
+  TELEGRAM_TOKEN = Rails.env.production? ? '387173014:AAGWNVqr2CaNN3hi7DWM_p3mOSku-Nixuvw' : '428559215:AAFwkErv6EoczhTiNwj4JPyYbSdhIDNc6fs'
 
   class << self
 

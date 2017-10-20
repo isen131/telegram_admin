@@ -17,5 +17,6 @@
 //= require turbolinks
 //= require_tree .
 //= require_tree ./lib
+//= require js-routes
 
 //= require gentelella

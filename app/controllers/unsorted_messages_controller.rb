@@ -26,20 +26,20 @@ class UnsortedMessagesController < ApplicationController
     }
   end
 
-  # def reload_collection
-  #   render partial: 'shared/js/content', locals: {
-  #     replace: '@unsortedMessagesList',
-  #     with: 'unsorted_messages/shared/list',
-  #     locals: {
-  #       resource_messages_collection: resource_messages_collection
-  #     }
-  #   }
-  # end
+  def reload_collection
+    render partial: 'shared/js/content', locals: {
+      replace: '@unsortedMessagesList',
+      with: 'unsorted_messages/shared/list',
+      locals: {
+        resource_messages_collection: resource_messages_collection
+      }
+    }
+  end
 
   protected
 
   def resource_messages_collection
-    @resource_messages_collection ||= BotUser::Message.unsorted
+    @resource_messages_collection ||= BotUser::Message.unsorted.includes(:bot_user, :template)
   end
 
   def resource_message
