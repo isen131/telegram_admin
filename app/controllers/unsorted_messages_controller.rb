@@ -1,6 +1,7 @@
 class UnsortedMessagesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:reload_collection]
-  
+  # skip_before_action :verify_authenticity_token, only: [:reload_collection]
+  skip_filter :require_persisted_user, :only => [:reload_collection]
+
   helper_method :resource_messages_collection
 
   def index
