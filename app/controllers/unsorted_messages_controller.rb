@@ -36,6 +36,10 @@ class UnsortedMessagesController < ApplicationController
     }
   end
 
+  def collection_count
+    render text: "#{resource_messages_collection.count}"
+  end
+
   protected
 
   def resource_messages_collection
