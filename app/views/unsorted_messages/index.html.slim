@@ -1,8 +1,8 @@
-coffee:
-  $(document).ready ->
-    new Lib.UnsortedIndex($('@container'))
-
 .page-header
   h2 Входящие сообщения
 
-= render partial: 'unsorted_messages/shared/list', locals: { resource_messages_collection: resource_messages_collection }
+@list
+  = render partial: 'unsorted_messages/shared/list', locals: { resource_messages_collection: resource_messages_collection }
+
+coffee:
+  new Lib.UnsortedIndex($('@list'))

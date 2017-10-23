@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     get :detect_new_messages, on: :collection
   end
 
-  resources :whitelist_messages
+  resources :whitelist_messages do
+    put :reject, on: :member
+  end
 
   namespace 'auth' do
     get 'sign_in' => 'sessions#new'

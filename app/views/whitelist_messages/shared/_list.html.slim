@@ -1,4 +1,4 @@
-ul
+ul@whitelistMessagesList
   - if resource_messages_collection.any?
     table.table.table-condensed.table-hover.table-striped
       thead
@@ -17,6 +17,6 @@ ul
             td
               = message.punchline
             td.text-right
-              = link_to fa_icon('times'), reject_unsorted_message_path(message), class: 'btn btn-sm btn-danger', remote: true, method: :put
+              = link_to fa_icon('times'), reject_whitelist_message_path(message), class: 'btn btn-sm btn-danger', remote: true, method: :put
   - else
     h3 Сообщений нет
