@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     put :accept, on: :member
     put :reject, on: :member
     get :reload_collection, on: :collection
-    get :detect_new_messages, on: :collection
+    get :messages_count, on: :collection
   end
 
   resources :whitelist_messages do

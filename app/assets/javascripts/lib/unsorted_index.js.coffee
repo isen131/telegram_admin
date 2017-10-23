@@ -6,12 +6,12 @@ class Lib.UnsortedIndex
 
     timer = setInterval (->
       $.ajax(
-        url: Routes.detect_new_messages_unsorted_messages_path()
+        url: Routes.messages_count_unsorted_messages_path()
         type: 'GET'
         dataType: 'script'
       ).success(
           (data, textStatus, jqXHR) ->
-            if data == 'true'
+            if parseInt(data) != parseInt($('@messageTr').length)
               $.ajax(
                 url: Routes.reload_collection_unsorted_messages_path()
                 type: 'GET'
