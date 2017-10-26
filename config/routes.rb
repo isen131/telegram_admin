@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   end
 
   get 'get_messages' => 'whitelist_messages#get_messages'
+  get 'get_templates' => 'whitelist_messages#get_templates'
 
 end

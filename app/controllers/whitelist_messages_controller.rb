@@ -11,10 +11,22 @@ class WhitelistMessagesController < ApplicationController
     else
       render json: { :messages => resource_messages_collection.map {|m|
           {
-            :name => m.bot_user.full_name,
-            :username => m.bot_user.username,
+            :name => m.bot_user.username,
             :template => m.template.text,
             :punchline => m.punchline
+          }
+        }
+      }
+    end
+  end
+
+  def get_templates
+    if params[:token].blank? || params[:token] != 'wmbe2W_fAssrA3oG55ulOQ'
+      render :nothing => true
+    else
+      render json: { :templates => Template.all.map {|t|
+          {
+            :text => t.text
           }
         }
       }
