@@ -12,7 +12,7 @@ ul@unsortedMessagesList
         - resource_messages_collection.each do |message|
           tr@messageTr
             td
-              = message.bot_user.full_name
+              = message.bot_user.username
             td
               = message.template.text
             td
